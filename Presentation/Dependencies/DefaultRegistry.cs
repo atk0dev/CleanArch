@@ -15,6 +15,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+using StructureMap;
 using StructureMap.Configuration.DSL;
 using StructureMap.Graph;
 
@@ -25,12 +26,9 @@ namespace CleanArchitecture.Presentation.Dependencies {
         public DefaultRegistry() {
             Scan(scan => 
             {
-                scan.AssembliesFromApplicationBaseDirectory(
-                    filter => filter.FullName.StartsWith("CleanArchitecture"));
-
                 scan.WithDefaultConventions();
-
-				scan.With(new ControllerConvention());
+                scan.AssembliesFromApplicationBaseDirectory(filter => filter.FullName.StartsWith("CleanArchitecture"));
+                scan.With(new ControllerConvention());
             });
         }
 

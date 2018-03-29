@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using StructureMap.Web.Pipeline;
-
 namespace CleanArchitecture.Service.DependencyResolution {
+    using System.Web;
+
+    using CleanArchitecture.Service;
+
+    using StructureMap.Web.Pipeline;
+
     public class StructureMapScopeModule : IHttpModule {
         #region Public Methods and Operators
 

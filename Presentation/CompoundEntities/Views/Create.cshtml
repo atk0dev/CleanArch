@@ -8,19 +8,23 @@
 
 @using (Html.BeginForm("create", "CompoundEntities", FormMethod.Post))
 {
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label">Simple Entity</label>
-            @Html.DropDownListFor(p => p.CompoundEntity.SimpleEntityId, Model.SimpleEntities, new { @class="form-control" })
-        </div>
-        <div class="form-group">
-            <label class="control-label">AnotherEntitiy</label>
-            @Html.DropDownListFor(p => p.CompoundEntity.AnotherEntitiyId, Model.AnotherEntities, new { @class = "form-control" })
-        </div>
-        <div class="form-group">
-            <label class="control-label">A</label>
-            @Html.TextBoxFor(p => p.CompoundEntity.A, new { @class = "form-control" })
-        </div>
-        <button type="submit" class="btn btn-primary">Create</button>
-    </form>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label">Simple Entity</label>
+        @Html.DropDownListFor(p => p.CompoundEntity.SimpleEntityId, Model.SimpleEntities, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">AnotherEntitiy</label>
+        @Html.DropDownListFor(p => p.CompoundEntity.AnotherEntitiyId, Model.AnotherEntities, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">A</label>
+        @Html.TextBoxFor(p => p.CompoundEntity.A, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label class="control-label">B</label>
+        @Html.TextBoxFor(p => p.CompoundEntity.B, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
 }

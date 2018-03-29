@@ -15,13 +15,10 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using StructureMap.Configuration.DSL;
-using StructureMap.Graph;
+namespace CleanArchitecture.Service.DependencyResolution
+{
+    using StructureMap;
 
-namespace CleanArchitecture.Service.DependencyResolution {
     public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
@@ -29,12 +26,11 @@ namespace CleanArchitecture.Service.DependencyResolution {
             Scan(
                 scan => {
                     scan.TheCallingAssembly();
-
                     scan.WithDefaultConventions();
-
-                    scan.AssembliesFromApplicationBaseDirectory(
-                        filter => filter.FullName.StartsWith("CleanArchitecture"));
+                    scan.AssembliesFromApplicationBaseDirectory(filter => filter.FullName.StartsWith("CleanArchitecture"));
+                    scan.With(new ControllerConvention());
                 });
+            //For<IExample>().Use<Example>();
         }
 
         #endregion

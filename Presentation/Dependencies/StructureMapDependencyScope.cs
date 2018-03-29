@@ -19,7 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Microsoft.Practices.ServiceLocation;
+using CommonServiceLocator;
 using StructureMap;
 
 namespace CleanArchitecture.Presentation.Dependencies {

@@ -15,14 +15,14 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Microsoft.Practices.ServiceLocation;
-using StructureMap;
-
 namespace CleanArchitecture.Service.DependencyResolution {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using CommonServiceLocator;
+    using StructureMap;
+	
     /// <summary>
     /// The structure map dependency scope.
     /// </summary>
@@ -80,16 +80,14 @@ namespace CleanArchitecture.Service.DependencyResolution {
         }
 
         public void Dispose() {
-            if (CurrentNestedContainer != null) {
-                CurrentNestedContainer.Dispose();
-            }
-
+            DisposeNestedContainer();
             Container.Dispose();
         }
 
         public void DisposeNestedContainer() {
             if (CurrentNestedContainer != null) {
                 CurrentNestedContainer.Dispose();
+				CurrentNestedContainer = null;
             }
         }
 
