@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CleanArchitecture.Application.CompoundEntities.Queries.GetCompoundEntitiesList.CompoundEntitiesListItemModel>
+
+@{
+    ViewBag.Title = "CompoundEntities";
+}
+
+<h2>CompoundEntities</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>SimpleEntity</th>
+            <th>AnotherEntity</th>
+            <th>A</th>
+            <th>B</th>
+            <th>AB</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><a href="CompoundEntities/@item.Id">@item.Id</a></td>
+                <td>@item.Date.ToString("d")</td>
+                <td>@item.SimpleEntityName</td>
+                <td>@item.AnotherEntityName</td>
+                <td>@item.A</td>
+                <td>@item.B</td>
+                <td>@item.AB</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pull-right">
+    <a class="btn btn-primary" href="CompoundEntities/create">Create Compound Entity</a>
+</div>
+

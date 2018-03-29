@@ -1,0 +1,25 @@
+﻿@model IEnumerable<CleanArchitecture.Application.SimpleEntities.Queries.GetSimpleEntityList.SimpleEntityModel>
+
+@{
+    ViewBag.Title = "SimpleEntities";
+}
+
+<h2>SimpleEntities</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var entity in Model)
+    {
+        <tr>
+            <td>@entity.Id</td>
+            <td>@entity.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
